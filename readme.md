@@ -32,8 +32,12 @@
 
 1. [Скачайте репозиторий](https://github.com/evdevru/casino/archive/refs/heads/main.zip) и разархивируйте
 2. Установите [Git](https://git-scm.com/download/win), [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
-3. Откройте командную строку, перейдите в папку с репозиторием и введите команды
+3. Загеристрируйтесь на heroku и создайте 2 РАЗНЫХ проекта
+
+Далее согласно видео выполняйте шаги (команды)
+
+### Папка "client"
 
 ```bash
-
+$ cd client && git init && git add . && git commit -m "first commit"
 ```
