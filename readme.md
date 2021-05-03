@@ -32,7 +32,7 @@
 
 1. [Скачайте репозиторий](https://github.com/evdevru/casino/archive/refs/heads/main.zip) и разархивируйте
 2. Установите [Git](https://git-scm.com/download/win), [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
-3. Загеристрируйтесь на heroku и создайте 2 РАЗНЫХ проекта
+3. Загеристрируйтесь на heroku и создайте 2 **_РАЗНЫХ_** проекта
 
 Далее согласно видео выполняйте шаги (команды)
 
