@@ -34,26 +34,34 @@
 2. Установите [Git](https://git-scm.com/download/win), [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
 3. Загеристрируйтесь на heroku и создайте 2 **_РАЗНЫХ_** проекта (для клиента и сервера)
 
+Откройте командную строку и выполните коману
+
+```bash
+$ heroku login
+```
+
 Далее согласно видео выполняйте шаги (команды)
 
 ### Папка "client"
 
 ```bash
 $ git init && git add . && git commit -m "first commit"
-$ heroku login
-```
 
-После прохождения авторизации
+$ heroku git:remote -a ИМЯ_СОЗДАННОГО_ВАМИ_ПЕРВОГО_ПРОЕКТА
 
-```bash
 $ heroku config:set HOST=0.0.0.0
+
 $ heroku config:set SELLER_ID=id_продавца_digiseller
+
 $ heroku config:set AGENT_ID=id_продавца_digiseller
+
 # REVIEWS_TYPE=all || good || bad
 $ heroku config:set REVIEWS_TYPE=all
+
 $ heroku config:set NODE_ENV=production
+
 $ heroku config:set BASE_URL=https://ИМЯ_СОЗДАННОГО_ВАМИ_ВТОРОГО_ПРОЕКТА.herokuapp.com/
-$ heroku git:remote -a ИМЯ_СОЗДАННОГО_ВАМИ_ПЕРВОГО_ПРОЕКТА
+
 $ git push heroku master
 ```
 
@@ -67,10 +75,17 @@ $ git push heroku master
 
 ```bash
 $ git init && git add . && git commit -m "first commit"
-$ heroku config:set APP_URL=https://ИМЯ_СОЗДАННОГО_ВАМИ_ПЕРВОГО_ПРОЕКТА.herokuapp.com/
-$ heroku config:set ENV_SILENT=true
-$ heroku config:set ADMIN_PASSWORD=желаемый_пароль
+
 $ heroku git:remote -a ИМЯ_СОЗДАННОГО_ВАМИ_ВТОРОГО_ПРОЕКТА
+
+$ heroku config:set APP_URL=https://ИМЯ_СОЗДАННОГО_ВАМИ_ВТОРОГО_ПРОЕКТА.herokuapp.com
+
+$ heroku config:set APP_KEY=16-значный_уникальный_ключ (n96M1TPG821EdN4mMIjnGKxGytx9W2UJ)
+
+$ heroku config:set ENV_SILENT=true
+
+$ heroku config:set ADMIN_PASSWORD=желаемый_пароль
+
 $ git push heroku master
 ```
 

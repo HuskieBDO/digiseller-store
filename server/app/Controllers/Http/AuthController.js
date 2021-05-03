@@ -8,13 +8,14 @@ class AuthController {
     const passwordConfirmation = process.env.ADMIN_PASSWORD || "admin";
     if (password === passwordConfirmation) {
       let user = await User.findBy("email", "admin@gmail.com");
-      if (!user)
+      if (!user) {
         user = await User.findOrCreate({
           email: "admin@gmail.com",
           username: "admin",
           password: "admin",
         });
-      await user.reload();
+        await user.reload();
+      }
       const token = await auth.generate(user);
       return response.status(200).send({
         status: "success",
