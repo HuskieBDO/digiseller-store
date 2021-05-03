@@ -32,12 +32,46 @@
 
 1. [Скачайте репозиторий](https://github.com/evdevru/casino/archive/refs/heads/main.zip) и разархивируйте
 2. Установите [Git](https://git-scm.com/download/win), [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
-3. Загеристрируйтесь на heroku и создайте 2 **_РАЗНЫХ_** проекта
+3. Загеристрируйтесь на heroku и создайте 2 **_РАЗНЫХ_** проекта (для клиента и сервера)
 
 Далее согласно видео выполняйте шаги (команды)
 
 ### Папка "client"
 
 ```bash
-$ cd client && git init && git add . && git commit -m "first commit"
+$ git init && git add . && git commit -m "first commit"
+$ heroku login
 ```
+
+После прохождения авторизации
+
+```bash
+$ heroku config:set HOST=0.0.0.0
+$ heroku config:set SELLER_ID=id_продавца_digiseller
+$ heroku config:set AGENT_ID=id_продавца_digiseller
+# REVIEWS_TYPE=all || good || bad
+$ heroku config:set REVIEWS_TYPE=all
+$ heroku config:set NODE_ENV=production
+$ heroku config:set BASE_URL=https://ИМЯ_СОЗДАННОГО_ВАМИ_ВТОРОГО_ПРОЕКТА.herokuapp.com/
+$ heroku git:remote -a ИМЯ_СОЗДАННОГО_ВАМИ_ПЕРВОГО_ПРОЕКТА
+$ git push heroku master
+```
+
+Перед работой с папкой "server" выполните:
+
+1. Перейдите в проект для сервера
+2. Вкладка "resources"
+3. В поиске введите "ClearDB" и согласитель на бесплатное обслуживание
+
+### Папка "server"
+
+```bash
+$ git init && git add . && git commit -m "first commit"
+$ heroku config:set APP_URL=https://ИМЯ_СОЗДАННОГО_ВАМИ_ПЕРВОГО_ПРОЕКТА.herokuapp.com/
+$ heroku config:set ENV_SILENT=true
+$ heroku config:set ADMIN_PASSWORD=желаемый_пароль
+$ heroku git:remote -a ИМЯ_СОЗДАННОГО_ВАМИ_ВТОРОГО_ПРОЕКТА
+$ git push heroku master
+```
+
+На этом установка закончена. Осталось авторизовать в панели и создать или синхронизировать товары.
