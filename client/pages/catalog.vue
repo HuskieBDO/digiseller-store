@@ -50,7 +50,7 @@
         <app-filter
           ref="filter"
           v-model="filter"
-          :init-filter="filter"
+          :filter-initial="filterInitial"
           :categories="nestedCategories"
           :tags="tags"
           :parameters="existedParameters"
@@ -257,6 +257,7 @@ export default {
 
     return {
       filter,
+      filterInitial: JSON.parse(JSON.stringify(filter)),
       categories,
       parameters,
       tags,

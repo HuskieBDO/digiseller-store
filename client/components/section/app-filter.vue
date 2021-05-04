@@ -109,6 +109,10 @@ export default {
       type: Object,
       required: true,
     },
+    filterInitial: {
+      type: Object,
+      required: true,
+    },
     categories: {
       type: Array,
       default: () => [],
@@ -151,10 +155,12 @@ export default {
       }
     },
     reset() {
-      this.filter = Object.assign({}, this.initialFilter)
+      this.filter = JSON.parse(JSON.stringify(this.filterInitial))
       const query = Object.assign({}, this.$router.query)
-      delete query.search
-      this.$router.replace({ query })
+      if (query.length && query.search) {
+        delete query.search
+        this.$router.replace({ query })
+      }
     },
   },
 }
